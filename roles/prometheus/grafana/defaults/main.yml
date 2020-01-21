@@ -1,5 +1,5 @@
 ---
-grafana_version: "6.2.0"
+grafana_version: "6.5.3"
 
 
 grafana_download_dir: "{{ ansible_temp_dir }}"
