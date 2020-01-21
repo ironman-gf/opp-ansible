@@ -12,5 +12,5 @@ OnePoint-DB-cluster-1
 OPP-EAST-DB-cluster-1
 OPP-EAST-DB-cluster-2
 
-[prometheus-node]
+[prometheus]
 prometheus
