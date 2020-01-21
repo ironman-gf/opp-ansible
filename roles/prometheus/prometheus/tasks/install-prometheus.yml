@@ -10,7 +10,6 @@
   with_items:
     - "{{ prometheus_install_dir }}"  
     - "{{ prometheus_data_dir }}" 
-    - "{{ prometheus_rule_files_dir }}" 
     
 
 - name: unarchive install
