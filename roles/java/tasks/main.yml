@@ -1,0 +1,8 @@
+---
+
+
+- name: download java
+  import_tasks: download-java.yml
+  
+- name: install java
+  import_tasks: install-java.yml

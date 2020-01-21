@@ -1,0 +1,19 @@
+---
+
+ansible_temp_dir: /home/ansible/tmp/files
+ansible_src_dir: /home/ansible/src
+ansilbe_environment: azure
+
+centos_hosts:
+  - regexp: '^100.18*cluster-1$'
+    line: "100.18.0.4    OnePoint-DB-cluster-1"
+  - regexp: '^100.18*cluster-2$'
+    line: "100.18.0.7    OnePoint-DB-cluster-2"
+  - regexp: '^100.18*cluster-33$'
+    line: "100.18.0.8    OnePoint-DB-cluster-3"
+  - regexp: '^100.19*cluster-1$'
+    line: "100.19.0.4    OPP-EAST-DB-cluster-1"
+  - regexp: '^100.19*cluster-2$'
+    line: "100.19.0.5    OPP-EAST-DB-cluster-2"
+  - regexp: '^100.19*cluster-2$'
+    line: "100.19.0.6    OPP-EAST-DB-cluster-3"

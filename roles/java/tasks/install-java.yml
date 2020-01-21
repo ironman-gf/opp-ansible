@@ -1,0 +1,46 @@
+---
+- name: check whether java fetched on the manager node
+  local_action: stat
+    path=tmp/java/{{ java_release_tar_file }}
+  register: java_fetched_check
+
+- name: fetch java tar from the first node
+  fetch:
+    src: "{{ java_download_dir }}/{{ java_release_tar_file }}"
+    dest: "tmp/java/{{ java_release_tar_file }}"
+    flat: yes
+  run_once: true
+  delegate_to: "{{ groups['java'][0] }}"
+  when: not java_fetched_check.stat.exists
+
+- name: unarchive java tar
+  unarchive: 
+    src: "tmp/java/{{ java_release_tar_file }}"
+    dest: /usr/local
+    
+- name: link to /usr/local/jdk
+  file: 
+    src: "/usr/local/{{ java_extract_dir }}"
+    dest: /usr/local/jdk
+    owner: root
+    group: root
+    mode: 0751
+    state: link
+    
+
+- name: set java home env
+  lineinfile: 
+    dest: /etc/profile 
+    regexp: '^export JAVA_HOME=/usr/local/jdk$'
+    line: "export JAVA_HOME=/usr/local/jdk" 
+    state: present
+    
+- name: export java bin to path
+  lineinfile: 
+    dest: /etc/profile 
+    regexp: '^export PATH=\$PATH:\$JAVA_HOME/bin$'
+    line: "export PATH=$PATH:$JAVA_HOME/bin" 
+    state: present
+  
+
+

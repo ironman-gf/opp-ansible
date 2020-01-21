@@ -1,0 +1,7 @@
+---
+
+- name: stop prometheus
+  systemd:
+    name: prometheus
+    state: stopped
+    enabled: no

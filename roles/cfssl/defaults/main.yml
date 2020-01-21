@@ -1,0 +1,4 @@
+---
+cfssl_version: 1.2
+cfssl_download_url: "https://pkg.cfssl.org/R{{ cfssl_version }}"
+cfssl_bin_path: /usr/local/bin

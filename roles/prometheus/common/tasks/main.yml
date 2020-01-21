@@ -1,0 +1,6 @@
+---
+
+  
+- name: create user and group
+  import_tasks: create-user.yml
+  

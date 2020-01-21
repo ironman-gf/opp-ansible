@@ -1,0 +1,13 @@
+---
+
+- name: download prometheus
+  import_tasks: download-prometheus.yml
+
+- name: install prometheus
+  import_tasks: install-prometheus.yml
+
+- name: start prometheus
+  import_tasks: start-prometheus.yml
+  
+- name: restart prometheus
+  import_tasks: restart-prometheus.yml

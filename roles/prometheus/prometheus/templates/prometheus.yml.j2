@@ -1,0 +1,25 @@
+global:
+  scrape_interval: 15s
+  scrape_timeout: 30s
+  evaluation_interval: 1m
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+{%for host in groups['prometheus'] %}
+     - targets: 
+        - {{ hostvars[host]['host_ip_address'] }}:{{ prometheus_port }}
+       labels:
+         instance: {{ host }}
+{%endfor%}
+      
+  - job_name: 'linux'
+    static_configs:
+{%for host in groups['linux'] %}
+     - targets: 
+        - {{ hostvars[host]['host_ip_address'] }}:{{ node_exporter_port }}
+       labels:
+         instance: {{ host }}
+{%endfor%}
+
+

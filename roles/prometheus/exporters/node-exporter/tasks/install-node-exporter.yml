@@ -1,0 +1,33 @@
+
+
+- name: ensure install dirs
+  file: 
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ prometheus_user }}"
+    group: "{{ prometheus_group }}"
+    mode: 0750
+  with_items:
+    - "{{ node_exporter_install_dir }}"  
+    
+- name: copy install
+  copy: 
+    src: "{{ node_exporter_unarchived_dir }}/{{ item }}"
+    dest: "{{ node_exporter_install_dir }}/"
+    remote_src: yes
+  with_items:
+    - node_exporter
+    
+- name: chmod bin
+  file: 
+    path: "{{ node_exporter_install_dir }}/{{ item }}"
+    owner: "{{ prometheus_user }}"
+    group: "{{ prometheus_group }}"
+    mode: 0750
+  with_items:
+    - node_exporter
+    
+- name: copy systemd unit
+  template: 
+    src: node_exporter.service.j2
+    dest: /etc/systemd/system/node_exporter.service

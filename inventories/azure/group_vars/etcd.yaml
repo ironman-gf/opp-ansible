@@ -1,0 +1,5 @@
+---
+
+etcd_machine_address: "{{ host_ip_address }}"
+
+etcd_data_dir: /data/etcd

@@ -1,0 +1,30 @@
+---
+- name: install net-tools
+  yum:
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+      - net-tools
+      - bind-utils
+      
+- name: ensure epel-release
+  package:
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+      - epel-release
+  
+- name: install perf tool
+  yum:
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+      - iotop
+      - lsof
+      - sysstat
+      - traceroute
+      - iftop
+      - nethogs

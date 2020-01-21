@@ -1,0 +1,5 @@
+---
+
+ansible_temp_dir: /tmp/.ansible/files
+ansible_src_dir: /usr/local/src
+ansilbe_environment: 

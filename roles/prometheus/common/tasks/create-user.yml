@@ -1,0 +1,21 @@
+---
+
+- name: create system prometheus group
+  group:
+    name: "{{ prometheus_group }}"
+    state: present
+
+- name: create system prometheus user
+  user:
+    name: "{{ prometheus_user }}"
+    shell: /sbin/nologin
+    home: "{{ prometheus_user_home_dir }}"
+    state: present
+    system: yes
+    groups: "{{ prometheus_group }}"
+    
+    
+
+  
+
+  

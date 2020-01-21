@@ -1,0 +1,13 @@
+---
+
+- name: download node-exporter
+  import_tasks: download-node-exporter.yml
+  
+- name: install node-exporter
+  import_tasks: install-node-exporter.yml
+  
+- name: start node-exporter
+  import_tasks: start-node-exporter.yml
+  
+- name: restart node-exporter
+  import_tasks: restart-node-exporter.yml

@@ -1,0 +1,14 @@
+---
+- hosts: "{{ variable_host | default('linux') }}"
+  become: yes
+  roles:
+     - role: centos/server-init
+  tags:
+     - init
+
+- hosts: linux
+  become: yes
+  roles:
+     - role: centos/set-hosts
+  tags:
+     - hosts

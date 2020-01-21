@@ -1,0 +1,13 @@
+[Unit]
+Description=node_exporter
+After=network.target
+[Service]
+Type=simple
+User=prometheus
+ExecStart={{ node_exporter_install_dir }}/node_exporter \
+ --web.listen-address=:{{ node_exporter_port }} \
+ --collector.systemd \
+ --collector.processes
+Restart=on-failure
+[Install]
+WantedBy=multi-user.target

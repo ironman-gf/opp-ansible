@@ -1,0 +1,14 @@
+---
+- name: restart prometheus
+  systemd:
+    name: prometheus
+    state: restarted
+  when: not prometheus_only_reload_config
+
+
+- name: reload prometheus
+  systemd:
+    name: prometheus
+    state: reloaded
+  when: prometheus_only_reload_config
+

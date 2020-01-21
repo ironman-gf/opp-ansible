@@ -1,0 +1,27 @@
+---
+
+- name: check whether cfssl downloaded
+  stat: 
+    path: "{{ cfssl_bin_path }}/cfssl"
+  register: cfssl_downloaded_check
+
+- name: check whether cfssljson downloaded
+  stat: 
+    path: "{{ cfssl_bin_path }}/cfssljson"
+  register: cfssljson_downloaded_check
+
+- name: download cfssl
+  get_url:
+    url: "{{ cfssl_download_url }}/cfssl_linux-amd64"
+    dest: "{{ cfssl_bin_path }}/cfssl"
+    timeout: 30
+    mode: 0755
+  when: not cfssl_downloaded_check.stat.exists
+
+- name: download cfssljson
+  get_url:
+    url: "{{ cfssl_download_url }}/cfssljson_linux-amd64"
+    dest: "{{ cfssl_bin_path }}/cfssljson"
+    timeout: 30
+    mode: 0755
+  when: not cfssljson_downloaded_check.stat.exists

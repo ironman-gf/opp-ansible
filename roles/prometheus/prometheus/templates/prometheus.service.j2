@@ -1,0 +1,21 @@
+[Unit]
+Description=prometheus
+After=network.target
+[Service]
+Type=simple
+User={{ prometheus_user }}
+ExecStart={{ prometheus_install_dir }}/prometheus \
+ --config.file={{ prometheus_install_dir }}/prometheus.yml \
+ --storage.tsdb.path={{ prometheus_data_dir }} \
+ --storage.tsdb.retention.time={{ prometheus_data_retention }} \
+ --storage.tsdb.retention.size={{ prometheus_storage_retention_size }} \
+ --storage.tsdb.max-block-duration={{ prometheus_storage_max_block_duration }} \
+ --storage.tsdb.min-block-duration={{ prometheus_storage_min_block_duration }} \
+ --web.listen-address=:{{ prometheus_port }} \
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+{% if prometheus_cpu_quota != '' %}
+CPUQuota={{ prometheus_cpu_quota }}
+{% endif %}
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,13 @@
+---
+
+- name: create ansible temp directory
+  file: 
+    path: "{{ ansible_temp_dir }}"
+    state: directory
+    
+- name: create ansible src directory
+  file: 
+    path: "{{ ansible_src_dir }}"
+    state: directory
+    
+

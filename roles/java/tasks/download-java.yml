@@ -1,0 +1,33 @@
+---
+
+- name: create java download dir
+  file: 
+    path: "{{ java_download_dir }}"
+    state: directory
+  delegate_to: "{{ groups['java'][0] }}"
+  run_once: true
+  
+- name: check whether java downloaded on the first node
+  stat: 
+    path: "{{ java_download_dir }}/{{ java_release_tar_file }}"
+  register: java_downloaded_check
+  delegate_to: "{{ groups['java'][0] }}"
+  run_once: true
+  
+- name: download java on the first node
+  get_url:
+    url: "{{ java_download_url }}"
+    dest: "{{ java_download_dir }}"
+    headers: 'Cookie:oraclelicense=accept-securebackup-cookie;'
+    validate_certs: no
+    timeout: 20
+  register: download_java
+  delegate_to: "{{ groups['java'][0] }}"
+  run_once: true
+  when: not java_downloaded_check.stat.exists
+  
+  
+
+  
+
+

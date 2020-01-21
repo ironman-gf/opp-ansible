@@ -1,0 +1,22 @@
+---
+
+prometheus_version: 2.10.0
+
+
+prometheus_download_dir: "{{ ansible_temp_dir }}"
+prometheus_release: "prometheus-{{ prometheus_version }}.linux-amd64.tar.gz"
+prometheus_targz_file: "{{ prometheus_download_dir }}/{{ prometheus_release }}"
+prometheus_download_url: "https://github.com/prometheus/prometheus/releases/download/v{{ prometheus_version }}/{{ prometheus_release }}"
+prometheus_unarchived_dir: "{{ prometheus_download_dir }}/prometheus-{{ prometheus_version }}.linux-amd64"
+
+
+prometheus_install_dir: "{{ prometheus_install_base_dir }}/prometheus"
+prometheus_data_dir: "{{ prometheus_user_home_dir }}/data"
+prometheus_data_retention: 365d
+prometheus_storage_retention_size: 60GB
+prometheus_storage_max_block_duration: 7d
+prometheus_storage_min_block_duration: 2h
+prometheus_only_reload_config: true
+
+prometheus_port: 9090
+prometheus_cpu_quota: ""

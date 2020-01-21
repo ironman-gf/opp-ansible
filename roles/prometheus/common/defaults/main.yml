@@ -1,0 +1,11 @@
+---
+
+prometheus_group: prometheus
+prometheus_user: prometheus
+prometheus_user_home_dir: /home/prometheus
+
+prometheus_install_base_dir: "{{ prometheus_user_home_dir }}"
+prometheus_exporter_install_base_dir: "{{ prometheus_user_home_dir }}"
+
+node_exporter_port: 9100
+

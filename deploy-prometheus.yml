@@ -1,0 +1,16 @@
+---
+
+- hosts: prometheus
+  become: yes
+  roles:
+     - role: prometheus/prometheus
+  tags:
+     - prometheus
+
+- hosts: "{{ variable_host | default('linux') }}"
+  become: yes
+  roles:
+     - role: prometheus/exporters/node-exporter
+  tags:
+     - node-exporter
+

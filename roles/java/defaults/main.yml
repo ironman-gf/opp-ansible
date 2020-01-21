@@ -1,0 +1,12 @@
+---
+
+java_version: 8
+java_update: 131
+java_build: 11
+java_extract_dir: "jdk1.8.0_{{ java_update }}"
+java_download_path: d54c1d3a095b4ff2b6607d096fa80163
+java_download_dir: "{{ ansible_temp_dir }}/java-{{ java_version }}"
+java_release: "jdk-{{ java_version }}u{{ java_update }}-linux-x64"
+java_release_tar_file: "{{ java_release }}.tar.gz"
+java_download_url: "http://download.oracle.com/otn-pub/java/jdk/{{ java_version }}u{{ java_update }}-b{{ java_build }}/{{ java_download_path }}/{{ java_release_tar_file }}"
+

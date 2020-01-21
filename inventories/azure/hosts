@@ -1,0 +1,16 @@
+
+[linux]
+OnePoint-DB-cluster-1
+OnePoint-DB-cluster-2
+OnePoint-DB-cluster-3
+OPP-EAST-DB-cluster-1
+OPP-EAST-DB-cluster-2
+OPP-EAST-DB-cluster-3
+
+[etcd]
+OnePoint-DB-cluster-1
+OPP-EAST-DB-cluster-1
+OPP-EAST-DB-cluster-2
+
+[prometheus]
+prometheus
