@@ -3,6 +3,7 @@
 ansible_temp_dir: /home/ansible/tmp/files
 ansible_src_dir: /home/ansible/src
 ansilbe_environment: azure
+soft_download_dir: /home/soft
 
 centos_hosts:
   - regexp: '^100.18*cluster-1$'
