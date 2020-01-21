@@ -12,7 +12,7 @@ mysqld_exporter_unarchived_dir: "{{ mysqld_exporter_download_dir }}/mysqld_expor
 mysqld_exporter_install_dir: "{{ prometheus_exporter_install_base_dir }}/mysqld_exporter"
 
 mysqld_exporter_mysql_port: 3306
-mysqld_exporter_mysql_user: root
+mysqld_exporter_mysql_user: exporter
 mysqld_exporter_mysql_password: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           62653433373766656165323065323063366131393639613837313064393031663033393638633339
