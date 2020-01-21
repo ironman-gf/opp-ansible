@@ -1,5 +1,6 @@
 
 [linux]
+prometheus
 OnePoint-DB-cluster-1
 OnePoint-DB-cluster-2
 OnePoint-DB-cluster-3
