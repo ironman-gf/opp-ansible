@@ -1,0 +1,8 @@
+---
+
+- name: start mysqld_exporter
+  systemd:
+    name: mysqld_exporter
+    daemon_reload: yes
+    state: started
+    enabled: yes

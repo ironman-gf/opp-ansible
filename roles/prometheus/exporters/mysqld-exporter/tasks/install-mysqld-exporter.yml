@@ -1,0 +1,33 @@
+
+
+- name: ensure install dirs
+  file: 
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ prometheus_user }}"
+    group: "{{ prometheus_group }}"
+    mode: 0750
+  with_items:
+    - "{{ mysqld_exporter_install_dir }}"  
+    
+- name: copy install
+  copy: 
+    src: "{{ mysqld_exporter_unarchived_dir }}/{{ item }}"
+    dest: "{{ mysqld_exporter_install_dir }}/"
+    remote_src: yes
+  with_items:
+    - mysqld_exporter
+    
+- name: chmod bin
+  file: 
+    path: "{{ mysqld_exporter_install_dir }}/{{ item }}"
+    owner: "{{ prometheus_user }}"
+    group: "{{ prometheus_group }}"
+    mode: 0750
+  with_items:
+    - mysqld_exporter
+    
+- name: copy systemd unit
+  template: 
+    src: mysqld_exporter.service.j2
+    dest: /etc/systemd/system/mysqld_exporter.service

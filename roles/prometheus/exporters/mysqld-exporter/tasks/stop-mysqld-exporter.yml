@@ -1,0 +1,7 @@
+---
+
+- name: stop mysqld_exporter
+  systemd:
+    name: mysqld_exporter
+    state: stopped
+    enabled: no

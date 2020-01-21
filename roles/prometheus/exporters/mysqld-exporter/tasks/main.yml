@@ -1,0 +1,13 @@
+---
+
+- name: download mysqld-exporter
+  import_tasks: download-mysqld-exporter.yml
+  
+- name: install mysqld-exporter
+  import_tasks: install-mysqld-exporter.yml
+  
+- name: start mysqld-exporter
+  import_tasks: start-mysqld-exporter.yml
+  
+- name: restart mysqld-exporter
+  import_tasks: restart-mysqld-exporter.yml

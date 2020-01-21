@@ -1,0 +1,33 @@
+---
+
+- name: ensure download dir
+  file: 
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - "{{ mysqld_exporter_download_dir }}"  
+    
+- name: check whether mysqld_exporter downloaded
+  stat: 
+    path: "{{ mysqld_exporter_targz_file }}"
+  register: mysqld_exporter_downloaded_check
+  
+- name: download mysqld_exporter
+  get_url:
+    url: "{{ mysqld_exporter_download_url }}"
+    dest: "{{ mysqld_exporter_download_dir }}"
+    validate_certs: no
+    timeout: 30
+  when: not mysqld_exporter_downloaded_check.stat.exists
+  
+- name: check whether mysqld_exporter unarchived
+  stat: 
+    path: "{{ mysqld_exporter_unarchived_dir }}"
+  register: mysqld_exporter_unarchived_check
+
+- name: unarchive mysqld_exporter targz
+  unarchive: 
+    src: "{{ mysqld_exporter_targz_file }}"
+    dest: "{{ mysqld_exporter_download_dir }}"
+    remote_src: yes
+  when: not mysqld_exporter_unarchived_check.stat.exists
