@@ -14,3 +14,11 @@
   tags:
      - node-exporter
 
+
+- hosts: prometheus
+  become: yes
+  roles:
+     - role: prometheus/grafana
+  tags:
+     - grafana
+
