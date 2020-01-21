@@ -1,0 +1,21 @@
+---
+
+- name: create system grafana group
+  group:
+    name: "{{ grafana_group }}"
+    state: present
+
+- name: create system grafana user
+  user:
+    name: "{{ grafana_user }}"
+    shell: /sbin/nologin
+    home: "{{ grafana_user_home_dir }}"
+    state: present
+    system: yes
+    groups: "{{ grafana_group }}"
+    
+    
+
+  
+
+  

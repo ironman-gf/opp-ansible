@@ -1,0 +1,22 @@
+---
+
+- name: ensure download dir
+  file: 
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - "{{ grafana_download_dir }}"  
+    
+- name: check whether grafana downloaded
+  stat: 
+    path: "{{ grafana_targz_file }}"
+  register: grafana_downloaded_check
+  
+- name: download grafana
+  get_url:
+    url: "{{ grafana_download_url }}"
+    dest: "{{ grafana_download_dir }}"
+    validate_certs: no
+    timeout: 120
+  when: not grafana_downloaded_check.stat.exists
+  

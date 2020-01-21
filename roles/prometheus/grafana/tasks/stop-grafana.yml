@@ -1,0 +1,7 @@
+---
+
+- name: stop grafana
+  systemd:
+    name: grafana
+    state: stopped
+    enabled: no

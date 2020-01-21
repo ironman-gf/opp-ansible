@@ -1,0 +1,27 @@
+---
+grafana_version: "6.2.0"
+
+
+grafana_download_dir: "{{ ansible_temp_dir }}"
+grafana_release: "grafana-{{ grafana_version }}.linux-amd64.tar.gz"
+grafana_targz_file: "{{ grafana_download_dir }}/{{ grafana_release }}"
+grafana_download_url: "https://s3-us-west-2.amazonaws.com/grafana-releases/release/{{ grafana_release }}"
+
+grafana_group: grafana
+grafana_user: grafana
+grafana_user_home_dir: /home/grafana
+
+
+grafana_install_base_dir: /usr/local
+grafana_install_dir: "{{ grafana_install_base_dir }}/grafana-{{ grafana_version }}"
+grafana_data_dir: /var/lib/grafana
+grafana_plugins_dir: "{{ grafana_data_dir }}/plugins"
+grafana_log_dir: /var/log/grafana
+grafana_conf_dir: "{{ grafana_install_dir }}/conf"
+grafana_bin_dir: "{{ grafana_install_dir }}/bin"
+
+grafana_auth_ldap: false
+grafana_port: 3000
+grafana_domain: 40.74.87.128
+
+

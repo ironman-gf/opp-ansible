@@ -1,0 +1,16 @@
+---
+
+- name: create user
+  import_tasks: create-user.yml
+
+- name: download grafana
+  import_tasks: download-grafana.yml
+  
+- name: install grafana
+  import_tasks: install-grafana.yml
+  
+- name: start grafana
+  import_tasks: start-grafana.yml
+  
+- name: restart grafana
+  import_tasks: restart-grafana.yml

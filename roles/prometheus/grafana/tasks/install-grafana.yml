@@ -1,0 +1,58 @@
+
+
+- name: install image tool
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - fontconfig
+    - urw-fonts
+
+- name: ensure install dirs
+  file: 
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ grafana_user }}"
+    group: "{{ grafana_group }}"
+    mode: 0750
+  with_items:
+    - "{{ grafana_install_dir }}"  
+    - "{{ grafana_data_dir }}"
+    - "{{ grafana_log_dir }}"
+    
+
+- name: check whether grafana unarchived
+  stat: 
+    path: "{{ grafana_bin_dir }}"
+  register: grafana_unarchived_check
+
+   
+- name: unarchive grafana targz
+  unarchive: 
+    src: "{{ grafana_targz_file }}"
+    dest: "{{ grafana_install_base_dir }}"
+    remote_src: yes
+  when: not grafana_unarchived_check.stat.exists
+    
+- name: chmod bin
+  file: 
+    path: "{{ grafana_bin_dir }}/{{ item }}"
+    owner: "{{ grafana_user }}"
+    group: "{{ grafana_group }}"
+    mode: 0750
+  with_items:
+    - grafana-server
+    - grafana-cli
+    
+- name: copy conf
+  template: 
+    src: "{{ item.src }}"
+    dest: "{{ grafana_conf_dir }}/{{ item.dest }}"
+  with_items:
+    - src: grafana.ini.j2
+      dest: grafana.ini
+    
+- name: copy systemd unit
+  template: 
+    src: grafana.service.j2
+    dest: /etc/systemd/system/grafana.service
