@@ -11,7 +11,13 @@ ExecStart={{ mysqld_exporter_install_dir }}/mysqld_exporter \
  --collect.binlog_size \
  --collect.perf_schema.replication_group_member_stats \
  --collect.perf_schema.replication_applier_status_by_worker \
- --collect.info_schema.tables
+ --collect.info_schema.tables \
+ --collect.info_schema.userstats \
+ --collect.perf_schema.file_events \
+ --collect.perf_schema.file_instances \
+ --collect.slave_status \
+ --collect.slave_hosts \
+ --collect.info_schema.query_response_time
 Restart=on-failure
 [Install]
 WantedBy=multi-user.target
