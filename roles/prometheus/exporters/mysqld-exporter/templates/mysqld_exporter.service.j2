@@ -4,7 +4,7 @@ After=network.target
 [Service]
 Type=simple
 User=prometheus
-Environment=DATA_SOURCE_NAME={{ mysqld_exporter_mysql_user }}:{{ mysqld_exporter_mysql_password }}@tcp(localhost:{{ mysqld_exporter_mysql_port }})/?loc=Local
+Environment=DATA_SOURCE_NAME={{ mysqld_exporter_mysql_user }}:{{ mysqld_exporter_mysql_password }}@tcp(127.0.0.1:{{ mysqld_exporter_mysql_port }})/?loc=Local
 ExecStart={{ mysqld_exporter_install_dir }}/mysqld_exporter \
  --web.listen-address=:{{ mysqld_exporter_port }} \
  --collect.info_schema.processlist \

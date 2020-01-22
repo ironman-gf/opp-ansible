@@ -1,0 +1,10 @@
+---
+
+- hosts: java
+  become: yes
+  roles:
+     - role: java
+  tags:
+     - java
+
+
