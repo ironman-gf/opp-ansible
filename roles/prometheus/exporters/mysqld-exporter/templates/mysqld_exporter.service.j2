@@ -8,7 +8,10 @@ Environment=DATA_SOURCE_NAME={{ mysqld_exporter_mysql_user }}:{{ mysqld_exporter
 ExecStart={{ mysqld_exporter_install_dir }}/mysqld_exporter \
  --web.listen-address=:{{ mysqld_exporter_port }} \
  --collect.info_schema.processlist \
- --collect.binlog_size
+ --collect.binlog_size \
+ --collect.perf_schema.replication_group_member_stats \
+ --collect.perf_schema.replication_applier_status_by_worker \
+ --collect.info_schema.tables
 Restart=on-failure
 [Install]
 WantedBy=multi-user.target
