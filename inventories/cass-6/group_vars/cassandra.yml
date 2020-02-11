@@ -1,6 +1,6 @@
 ---
 
-cluster_name: cassandra-jpw 
+cassandra_cluster_name: cassandra-jpw 
 cassandra_concurrent_reads: 32
 cassandra_concurrent_writes: 32
 cassandra_concurrent_counter_writes: 32
