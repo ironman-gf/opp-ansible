@@ -21,17 +21,23 @@
     extra_opts: [--strip-components=1]
     remote_src: yes   
 
-# - name: copy conf
-#   template: 
-#     src: cassandra.yml.j2
-#     dest: "{{ cassandra_install_dir }}/cassandra.yml"
+- name: set dc information
+  lineinfile:
+    path: "{{ cassandra_install_dir}}/conf/cassandra-rackdc.properties"
+    regexp: "{{item.regexp}}"
+    line: "{{item.line}}"
+  with_items:
+    - regexp: '^dc=.*?'
+      line: 'dc={{cassandra_dc}}'
+    - regexp: '^rack=.*?'
+      line: 'rack={{cassandra_rack}}'
+
+- name: copy conf
+  template: 
+    src: cassandra.yml.j2
+    dest: "{{ cassandra_install_dir }}/conf/cassandra.yml"
     
-# - name: check conf
-#   command: "{{ cassandra_install_dir }}/promtool check config {{ cassandra_install_dir }}/{{ item }}"
-#   with_items:
-#     - cassandra.yml
-    
-# - name: copy systemd unit
-#   template: 
-#     src: cassandra.service.j2
-#     dest: /etc/systemd/system/cassandra.service
+- name: copy systemd unit
+  template: 
+    src: cassandra.service.j2
+    dest: /etc/systemd/system/cassandra.service

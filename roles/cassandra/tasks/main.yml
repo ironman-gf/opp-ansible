@@ -7,3 +7,9 @@
 
 - name: install cassandra
   import_tasks: install-cassandra.yml
+
+- name: start cassandra
+  import_tasks: start-cassandra.yml
+
+- name: restart cassandra
+  import_tasks: restart-cassandra.yml

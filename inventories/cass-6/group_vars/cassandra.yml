@@ -1,3 +1,12 @@
 ---
 
 cluster_name: cassandra-jpw 
+cassandra_concurrent_reads: 32
+cassandra_concurrent_writes: 32
+cassandra_concurrent_counter_writes: 32
+# cassandra endpoint_snitch
+# SimpleSnitch  GossipingPropertyFileSnitch
+endpoint_snitch: SimpleSnitch
+
+cassandra_dc: opp-jpw
+cassandra_rack: opp-jpw
