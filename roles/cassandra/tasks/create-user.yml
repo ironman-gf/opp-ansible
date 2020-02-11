@@ -1,0 +1,15 @@
+---
+
+- name: create system cassandra group
+  group:
+    name: "{{ cassandra_group }}"
+    state: present
+
+- name: create system cassandra user
+  user:
+    name: "{{ cassandra_user }}"
+    shell: /sbin/nologin
+    home: "{{ cassandra_user_home_dir }}"
+    state: present
+    system: yes
+    groups: "{{ cassandra_group }}"

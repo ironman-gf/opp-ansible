@@ -1,0 +1,32 @@
+- name: ensure download dir
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - "{{ cassandra_download_dir }}"
+
+- name: check whether cassandra downloaded
+  stat:
+    path: "{{ cassandra_targz_file }}"
+  register: cassandra_downloaded_check
+
+- name: download cassandra
+  get_url:
+    url: "{{ cassandra_download_url }}"
+    dest: "{{ cassandra_download_dir }}"
+    validate_certs: no
+    timeout: 120
+  when: not cassandra_downloaded_check.stat.exists
+
+- name: check whether cassandra unarchived
+  stat:
+    path: "{{ cassandra_unarchived_dir }}"
+  register: cassandra_unarchived_check
+
+- name: unarchive cassandra targz
+  unarchive:
+    src: "{{ cassandra_targz_file }}"
+    dest: "{{ cassandra_install_dir }}"
+    remote_src: yes
+  when: not cassandra_unarchived_check.stat.exists
+

@@ -1,0 +1,9 @@
+---
+- name: create cassandra user account
+  import_tasks: create-user.yml
+  
+- name: download cassandra
+  import_tasks: download-cassandra.yml
+
+- name: install cassandra
+  import_tasks: install-cassandra.yml
