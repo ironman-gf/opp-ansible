@@ -1,0 +1,10 @@
+---
+
+- hosts: cassandra
+  become: yes
+  roles:
+     - role: cassandra
+  tags:
+     - cassandra
+
+
