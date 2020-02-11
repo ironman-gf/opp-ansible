@@ -1,9 +1,11 @@
 
 [linux]
-lzj3278
+prometheus
+devops
 
 [cassandra]
-lzj3278
+prometheus
+devops
 
 [cassandra_seeds]
-lzj328
+prometheus

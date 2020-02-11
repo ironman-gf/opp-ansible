@@ -2,7 +2,7 @@
 
 ansible_temp_dir: /data/ansible/tmp/files
 ansible_src_dir: /data/ansible/src
-ansilbe_environment: azure
+ansilbe_environment: cass-6
 soft_download_dir: /data/soft
 
 centos_hosts:
