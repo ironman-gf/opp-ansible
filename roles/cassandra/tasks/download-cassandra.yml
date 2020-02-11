@@ -26,7 +26,7 @@
 - name: unarchive cassandra targz
   unarchive:
     src: "{{ cassandra_targz_file }}"
-    dest: "{{ cassandra_unarchived_dir }}"
+    dest: "{{ cassandra_download_dir }}"
     remote_src: yes
   when: not cassandra_unarchived_check.stat.exists
 
