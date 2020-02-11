@@ -35,7 +35,7 @@
 - name: copy conf
   template: 
     src: cassandra.yml.j2
-    dest: "{{ cassandra_install_dir }}/conf/cassandra.yml"
+    dest: "{{ cassandra_install_dir }}/conf/cassandra.yaml"
     
 - name: copy systemd unit
   template: 
