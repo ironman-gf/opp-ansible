@@ -3,6 +3,10 @@
 prometheus
 devops
 
+[java]
+prometheus
+devops
+
 [cassandra]
 prometheus
 devops
