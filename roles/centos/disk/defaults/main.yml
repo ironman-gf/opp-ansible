@@ -5,4 +5,4 @@ raw_disks: sdc
 lv_name: data
 require_lv_size: 100%FREE
 fs: xfs
-mount_point /data
+mount_point: /data
