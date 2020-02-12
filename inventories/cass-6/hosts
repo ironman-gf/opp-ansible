@@ -1,18 +1,24 @@
 
 [linux]
-prometheus
-devops
+cassandra-01
+cassandra-02
+cassandra-03
 
 [java]
-prometheus
-devops
+cassandra-01
+cassandra-02
+cassandra-03
 
 [cassandra]
-prometheus
-devops
+cassandra-01
+cassandra-02
+cassandra-03
 
 [cassandra_seeds]
-prometheus
+cassandra-01
+cassandra-02
 
 [disk]
-devops
+cassandra-01
+cassandra-02
+cassandra-03
