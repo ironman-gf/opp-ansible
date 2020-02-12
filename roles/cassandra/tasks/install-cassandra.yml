@@ -39,7 +39,7 @@
   lineinfile: 
     dest: /etc/profile 
     regexp: '^export CASSANDRA_HOME=.*?$'
-    line: "export JAVA_HOME={cassandra_install_dir}}" 
+    line: "export CASSANDRA_HOME={cassandra_install_dir}" 
     state: present
 
 - name: export cassandra bin to path
