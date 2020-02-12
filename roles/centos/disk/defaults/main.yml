@@ -1,6 +1,6 @@
 ---
 
-vg_name: vg-data
+vg_name: vgdata
 raw_disks: sdc
 lv_name: data
 require_lv_size: 100%FREE
