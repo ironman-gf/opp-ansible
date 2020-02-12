@@ -1,0 +1,13 @@
+    - name: Create a directory to mount the filesystem.
+      file:
+        path: "{{ mount_point }}"
+        state: directory
+        mode: '0755'
+
+    - name: Mount the created "{{ fs }}" filesystem.
+      mount:
+        path: "{{ mount_point }}"
+        src: "/dev/mapper/{{ vg_name}}-{{ lv_name}}"
+        fstype: "{{ fs }}"
+        opts: rw,nosuid,noexec
+        state: mounted

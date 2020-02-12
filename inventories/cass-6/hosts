@@ -13,3 +13,6 @@ devops
 
 [cassandra_seeds]
 prometheus
+
+[disk]
+devops

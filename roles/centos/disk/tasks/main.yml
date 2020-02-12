@@ -1,0 +1,13 @@
+---
+    
+- name: init disk
+  import_tasks: init-disk.yml
+
+- name: mount disk
+  import_tasks: mount-disk.yml
+
+  
+
+  
+
+  

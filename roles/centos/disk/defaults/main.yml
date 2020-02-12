@@ -1,0 +1,8 @@
+---
+
+vg_name: vg-data
+raw_disks: sdc
+lv_name: data
+require_lv_size: 100%FREE
+fs: xfs
+mount_point /data
