@@ -1,0 +1,36 @@
+---
+
+- hosts: "{{ variable_host | default('disk') }}"
+  become: yes
+  roles:
+     - role: centos/disk
+  tags:
+     - disk
+
+- hosts: "{{ variable_host | default('linux') }}"
+  become: yes
+  roles:
+     - role: centos/server-init
+  tags:
+     - init
+
+- hosts: linux
+  become: yes
+  roles:
+     - role: centos/set-hosts
+  tags:
+     - hosts
+
+- hosts: java
+  become: yes
+  roles:
+     - role: java
+  tags:
+     - java
+     
+- hosts: cassandra
+  become: yes
+  roles:
+     - role: cassandra
+  tags:
+     - cassandra

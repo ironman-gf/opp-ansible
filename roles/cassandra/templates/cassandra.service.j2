@@ -5,6 +5,7 @@ Description=Cassandra
 After=network.target
 
 [Service]
+Environment=CASSANDRA_HOME={{cassandra_install_dir}} CASSANDRA_CONF={{cassandra_install_dir}}/conf
 PIDFile={{cassandra_install_dir}}/cassandra.pid
 User={{cassandra_user}}
 Group={{cassandra_group}}
