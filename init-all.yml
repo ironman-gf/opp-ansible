@@ -20,13 +20,6 @@
      - role: centos/set-hosts
   tags:
      - hosts
-
-- hosts: java
-  become: yes
-  roles:
-     - role: java
-  tags:
-     - java
      
 - hosts: cassandra
   become: yes

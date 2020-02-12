@@ -10,7 +10,11 @@
   with_items:
     - "{{ cassandra_install_dir }}"  
     - "{{ cassandra_data_dir }}" 
-    
+
+- name: install java
+  yum:
+    name: java
+    state: present 
 
 - name: unarchive install
   unarchive: 
@@ -31,6 +35,19 @@
       line: 'dc={{cassandra_dc}}'
     - regexp: '^rack=.*?'
       line: 'rack={{cassandra_rack}}'
+- name: set cassandra home env
+  lineinfile: 
+    dest: /etc/profile 
+    regexp: '^export CASSANDRA_HOME=.*?$'
+    line: "export JAVA_HOME={cassandra_install_dir}}" 
+    state: present
+
+- name: export cassandra bin to path
+  lineinfile: 
+    dest: /etc/profile 
+    regexp: '^export PATH=\$PATH:\$CASSANDRA_HOME/bin$'
+    line: "export PATH=$PATH:$CASSANDRA_HOME/bin" 
+    state: present
 
 - name: copy conf
   template: 
