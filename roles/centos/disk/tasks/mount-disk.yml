@@ -9,5 +9,5 @@
     path: "{{ mount_point }}"
     src: "/dev/mapper/{{ vg_name}}-{{ lv_name}}"
     fstype: "{{ fs }}"
-    opts: rw,nosuid,noexec
+    opts: defaults
     state: mounted
