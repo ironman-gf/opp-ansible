@@ -14,7 +14,7 @@ cassandra_install_dir: "{{ cassandra_home }}"
 cassandra_path: "{{ cassandra_home }}/bin"
 cassandra_data_dir: "{{ cassandra_home }}/data"
 cassandra_hints_dir: "{{ cassandra_home }}/data/hints"
-cassandra_commitlog_dir: /var/log/commitlogs
+cassandra_commitlog_dir: "{{ cassandra_home }}/data/commitlogs"
 cassandra_saved_caches_dir: "{{ cassandra_home }}/data/saved_caches"
 #For IP Address configuration in YML
 cassandra_seeds_resolved: "{{ groups['cassandra_seeds'] | map('extract', hostvars, ['host_ip_address']) | join(',') }}"
