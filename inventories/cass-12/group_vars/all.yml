@@ -1,0 +1,14 @@
+---
+
+ansible_temp_dir: /data/ansible/tmp/files
+ansible_src_dir: /data/ansible/src
+ansilbe_environment: cass-6
+soft_download_dir: /data/soft
+
+centos_hosts:
+  - regexp: '^100.18*cluster-1$'
+    line: "100.18.0.10    cassandra-01"
+  - regexp: '^100.18*cluster-2$'
+    line: "100.18.0.12    cassandra-02"
+  - regexp: '^100.18*cluster-33$'
+    line: "100.18.0.11    cassandra-03"
