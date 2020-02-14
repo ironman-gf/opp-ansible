@@ -22,6 +22,7 @@
     dest: "{{ soft_download_dir }}"
     validate_certs: no
     timeout: 60
+    mode: 0777
   register: download_node_exporter
   delegate_to: "{{ groups['linux'][0] }}"
   run_once: true
