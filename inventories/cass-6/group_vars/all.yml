@@ -6,15 +6,15 @@ ansilbe_environment: cass-6
 soft_download_dir: /data/soft
 
 centos_hosts:
-  - regexp: '^100.18*cluster-01$'
+  - regexp: '^100.18*cassandra-01$'
     line: "100.18.0.14    cassandra-01"
-  - regexp: '^100.18*cluster-02$'
+  - regexp: '^100.18*cassandra-02$'
     line: "100.18.0.12    cassandra-02"
-  - regexp: '^100.18*cluster-03$'
+  - regexp: '^100.18*cassandra-03$'
     line: "100.18.0.15    cassandra-03"
-  - regexp: '^100.18*cluster-04$'
+  - regexp: '^100.18*cassandra-04$'
     line: "100.18.0.10    cassandra-04"
-  - regexp: '^100.18*cluster-03$'
+  - regexp: '^100.18*cassandra-05$'
     line: "100.18.0.13    cassandra-05"
-  - regexp: '^100.18*cluster-03$'
+  - regexp: '^100.18*cassandra-06$'
     line: "100.18.0.11    cassandra-06"
