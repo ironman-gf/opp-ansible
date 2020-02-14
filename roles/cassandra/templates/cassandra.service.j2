@@ -10,7 +10,6 @@ PIDFile={{cassandra_install_dir}}/cassandra.pid
 User={{cassandra_user}}
 Group={{cassandra_group}}
 ExecStart={{cassandra_path }}/cassandra -f -p {{cassandra_install_dir}}/cassandra.pid
-ExecStop=/bin/kill -s QUIT $MAINPID
 StandardOutput=journal
 StandardError=journal
 Restart=always
