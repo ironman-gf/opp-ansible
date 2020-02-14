@@ -22,10 +22,10 @@
   tags:
      - grafana
      
-- hosts: mysql
-  become: yes
-  roles:
-     - role: prometheus/exporters/mysqld-exporter
-  tags:
-     - mysqld-exporter
+# - hosts: mysql
+#   become: yes
+#   roles:
+#      - role: prometheus/exporters/mysqld-exporter
+#   tags:
+#      - mysqld-exporter
 

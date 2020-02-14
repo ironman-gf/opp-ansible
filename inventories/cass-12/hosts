@@ -51,3 +51,6 @@ cassandra-09
 cassandra-10
 cassandra-11
 cassandra-12
+
+[prometheus]
+prometheus
