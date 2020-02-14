@@ -12,9 +12,9 @@ cassandra_cluster_name: cassandra-jpw
 # On the other hand, since writes are almost never IO bound, the ideal
 # number of "concurrent_writes" is dependent on the number of cores in
 # your system; (8 * number_of_cores) is a good rule of thumb.
-cassandra_concurrent_reads: 64
-cassandra_concurrent_writes: 64
-cassandra_concurrent_counter_writes: 64
+cassandra_concurrent_reads: 32
+cassandra_concurrent_writes: 32
+cassandra_concurrent_counter_writes: 32
 # cassandra endpoint_snitch
 # SimpleSnitch  GossipingPropertyFileSnitch
 endpoint_snitch: SimpleSnitch

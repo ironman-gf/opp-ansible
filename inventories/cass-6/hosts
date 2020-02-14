@@ -6,6 +6,12 @@ cassandra-03
 cassandra-04
 cassandra-05
 cassandra-06
+cassandra-07
+cassandra-08
+cassandra-09
+cassandra-10
+cassandra-11
+cassandra-12
 
 [java]
 cassandra-01
@@ -19,6 +25,12 @@ cassandra-03
 cassandra-04
 cassandra-05
 cassandra-06
+cassandra-07
+cassandra-08
+cassandra-09
+cassandra-10
+cassandra-11
+cassandra-12
 
 [cassandra_seeds]
 cassandra-01
@@ -33,3 +45,9 @@ cassandra-03
 cassandra-04
 cassandra-05
 cassandra-06
+cassandra-07
+cassandra-08
+cassandra-09
+cassandra-10
+cassandra-11
+cassandra-12

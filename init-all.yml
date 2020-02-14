@@ -14,12 +14,12 @@
   tags:
      - init
 
-- hosts: linux
-  become: yes
-  roles:
-     - role: centos/set-hosts
-  tags:
-     - hosts
+# - hosts: linux
+#   become: yes
+#   roles:
+#      - role: centos/set-hosts
+#   tags:
+#      - hosts
      
 - hosts: cassandra
   become: yes
