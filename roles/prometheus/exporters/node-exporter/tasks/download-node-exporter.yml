@@ -1,38 +1,33 @@
 ---
 
-- name: ensure soft download dir on the first node
+- name: ensure soft download dir
   file: 
     path: "{{ item }}"
     state: directory
   with_items:
     - "{{ soft_download_dir }}"
-  delegate_to: "{{ groups['linux'][0] }}"
-  run_once: true
 
-- name: check whether node_exporter downloaded in soft_download_dir on the first node
-  stat: 
-    path: "{{ soft_download_dir }}/{{ node_exporter_release }}"
-  register: node_exporter_downloaded_check
-  delegate_to: "{{ groups['linux'][0] }}"
-  run_once: true
+# - name: check whether node_exporter downloaded in soft_download_dir on the first node
+#   stat: 
+#     path: "{{ soft_download_dir }}/{{ node_exporter_release }}"
+#   register: node_exporter_downloaded_check
+#   delegate_to: "{{ groups['linux'][0] }}"
+#   run_once: true
 
-- name: download node_exporter on the first node
+- name: download node_exporter
   get_url:
     url: "{{ node_exporter_download_url }}"
     dest: "{{ soft_download_dir }}"
     validate_certs: no
     timeout: 60
-    mode: 0777
   register: download_node_exporter
-  delegate_to: "{{ groups['linux'][0] }}"
-  run_once: true
   when: not node_exporter_downloaded_check.stat.exists
 
-- name: copy node_exporter to other nodes
-  copy:
-    src: "{{ soft_download_dir }}/{{ node_exporter_release }}"
-    dest: "{{ node_exporter_download_dir }}"
-    mode: 0755
+# - name: copy node_exporter to other nodes
+#   copy:
+#     src: "{{ soft_download_dir }}/{{ node_exporter_release }}"
+#     dest: "{{ node_exporter_download_dir }}"
+#     mode: 0755
 
 - name: check whether node_exporter unarchived
   stat: 
