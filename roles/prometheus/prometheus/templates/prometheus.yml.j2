@@ -21,12 +21,12 @@ scrape_configs:
        labels:
          instance: {{ host }}
 {%endfor%}
-  - job_name: 'mysql'
-    static_configs:
-{%for host in groups['mysql'] %}
-     - targets: 
-        - {{ hostvars[host]['host_ip_address'] }}:{{ mysqld_exporter_port }}
-       labels:
-         instance: {{ host }}
-{%endfor%}
+#   - job_name: 'mysql'
+#     static_configs:
+# {%for host in groups['mysql'] %}
+#      - targets: 
+#         - {{ hostvars[host]['host_ip_address'] }}:{{ mysqld_exporter_port }}
+#        labels:
+#          instance: {{ host }}
+# {%endfor%}
 
