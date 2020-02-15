@@ -8,7 +8,7 @@ couchbase_download_dir: "{{ ansible_temp_dir }}"
 
 # couchbase configuration
 user: admin
-password: "{{ vault_password }}"
+password: "q1w2e3r4"
 ram: 512
 replicas: 2
 bucket_ram: 256
