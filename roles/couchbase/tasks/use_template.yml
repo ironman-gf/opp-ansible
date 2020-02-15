@@ -1,0 +1,5 @@
+---
+
+- name: template use case example - use Jinja2 templating
+
+template: src=../templates/add-node.j2 dest=/tmp/add_nodes.sh mode=750

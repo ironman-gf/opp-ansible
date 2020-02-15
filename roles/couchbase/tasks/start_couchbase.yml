@@ -1,0 +1,9 @@
+---
+
+- name: make sure Couchbase Server started
+
+service:
+
+name: couchbase-server
+
+state: started

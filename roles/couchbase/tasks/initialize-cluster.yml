@@ -1,0 +1,5 @@
+---
+
+- name: Set-up Couchbase central node - init Couchbase cluster
+
+shell: /opt/couchbase/bin/couchbase-cli cluster-init -c 127.0.0.1 --cluster-username={{ user }} --cluster-password={{ password }} --cluster-port=8091 --cluster-ramsize={{ ram }}

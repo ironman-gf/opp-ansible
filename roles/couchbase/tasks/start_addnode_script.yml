@@ -1,0 +1,5 @@
+---
+
+- name: start config script - add remaining nodes to the cluster
+
+shell:  /tmp/add_nodes.sh

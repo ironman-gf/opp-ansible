@@ -1,0 +1,9 @@
+---
+
+- name: Download the appropriate meta package from the package download location
+
+get_url:
+
+url: "{{ couchbase_download_url }}"
+
+dest: "{{couchbase_download_dir}}"

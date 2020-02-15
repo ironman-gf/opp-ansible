@@ -1,0 +1,14 @@
+---
+
+ansible_temp_dir: /data/ansible/tmp/files
+ansible_src_dir: /data/ansible/src
+ansilbe_environment: couchbase-3
+soft_download_dir: /data/soft
+
+centos_hosts:
+  - regexp: '^100.18*couchbase-01$'
+    line: "100.18.0.24    couchbase-01"
+  - regexp: '^100.18*couchbase-02$'
+    line: "100.18.0.25    couchbase-02"
+  - regexp: '^100.18*couchbase-03$'
+    line: "100.18.0.26    couchbase-03"

@@ -1,0 +1,5 @@
+---
+
+    - name: Rebalance Couchbase cluster
+    
+    shell: /opt/couchbase/bin/couchbase-cli rebalance -c 127.0.0.1:8091 -u {{ user }} -p {{ password }}

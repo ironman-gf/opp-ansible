@@ -1,0 +1,29 @@
+---
+
+- include: download_meta_package.yml
+    
+- include: install_source.yml
+    
+- include: install_couchbase.yml
+    
+- include: start_couchbase.ylm
+    
+- include: initialize-cluster.yml
+    
+when: group_names[0]  == 'couchbase-master'
+    
+- include: use_template.yml
+    
+when: group_names[0]  == 'couchbase-master'
+    
+- include: start_addnode_script.yml
+    
+when: group_names[0]  == 'couchbase-master'
+    
+- include: rebalance_cluster.yml
+    
+when: group_names[0]  == 'couchbase-master'
+    
+- include: create_bucket.yml
+    
+when: group_names[0]  == 'couchbase-master'

@@ -1,0 +1,9 @@
+---
+
+- name: install the package source and the Couchbase public keys
+
+yum:
+
+name: "{{couchbase_download_dir}}"/"{{couchbase_release}}"
+
+state: present

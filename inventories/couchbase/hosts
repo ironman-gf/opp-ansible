@@ -1,0 +1,7 @@
+
+[couchbase-master]
+couchbase-01
+
+[couchbase-nodes] 
+couchbase-02
+couchbase-03

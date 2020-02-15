@@ -1,0 +1,9 @@
+---
+
+- name: Install Couchbase Server package
+
+yum:
+
+name: couchbase-server
+
+state: present

@@ -1,0 +1,15 @@
+cluster_name: default
+
+# couchbase version
+couchbase_version: 6.0.0
+couchbase_release: "couchbase-server-community-{{ couchbase_version }}-centos6.x86_64.rpm"
+couchbase_download_url: "http://packages.couchbase.com/releases/{{ couchbase_version }}/{{ couchbase_release }}"
+couchbase_download_dir: "{{ ansible_temp_dir }}"
+
+# couchbase configuration
+user: admin
+password: "{{ vault_password }}"
+ram: 512
+replicas: 2
+bucket_ram: 256
+bucket: Ansible
